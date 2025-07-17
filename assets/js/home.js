@@ -242,132 +242,96 @@ if (typeof gsap !== 'undefined') {
 
 
 
-/* script.js (Final version, append this to your script file) */
-
 // --- 5. FINAL FEATURED PROJECTS LOGIC ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // A. FINAL PROJECT DATA (6 projects, more gallery images)
+    // A. FINAL PROJECT DATA (Now includes a URL for each project)
     const projectsData = [
         {
             id: 'p1',
             title: 'Homna Limited',
             category: 'Campaign Strategy & Digital Marketing',
-            heroImage: 'assets/img/footer.jpg',
-            description: 'A comprehensive campaign strategy for Homna Limited, focusing on brand visibility and market penetration. Our team handled everything from initial SEO and brand book design to large-scale event activation, resulting in a significant increase in brand recognition and engagement.',
-            details: { Client: 'Homna Limited', Year: '2023', Services: 'Brand Strategy, SEO, Event Marketing' },
-            galleryImages: ['https://i.imgur.com/8Qe5mJc.jpeg', 'https://i.imgur.com/j4oGq8e.jpeg', 'https://picsum.photos/800/600?random=1']
+            heroImage: 'assets/img/h1.png',
+            url: 'projects.html'
         },
         {
             id: 'p2',
             title: 'FreshMeals',
             category: 'Brand Identity & Social Media',
-            heroImage: 'assets/img/footer.jpg',
-            description: 'We developed a fresh and vibrant brand identity for FreshMeals. The project included logo design, packaging concepts, and a highly successful social media launch campaign under the hashtag #FreshMeals, driving initial sales and customer acquisition.',
-            details: { Client: 'FreshMeals Catering', Year: '2024', Services: 'Brand Identity, Social Media, Packaging' },
-            galleryImages: ['https://i.imgur.com/h5rA9qE.jpeg', 'https://i.imgur.com/o2Y8e9U.jpeg', 'https://picsum.photos/800/600?random=2', 'https://picsum.photos/800/600?random=3']
+            heroImage: 'assets/img/f1.png',
+            url: 'projects.html'
         },
         {
             id: 'p3',
-            title: 'Ledger Minds',
+            title: 'Psy addis',
             category: 'Brand Strategy & Apparel Design',
-            heroImage: 'assets/img/footer.jpg',
-            description: 'Ledger Minds required a professional and trustworthy brand identity. We provided a full branding package, including logo creation and corporate apparel design, to unify their team\'s appearance and strengthen their brand presence.',
-            details: { Client: 'Ledger Minds Inc.', Year: '2023', Services: 'Branding, Graphic Design' },
-            galleryImages: ['https://picsum.photos/800/600?random=4', 'https://picsum.photos/800/600?random=5']
+            heroImage: 'assets/img/p1.png',
+            url: 'projects.html'
         },
         {
             id: 'p4',
             title: 'BTN Manufacturing',
             category: 'Content Strategy & SEO',
-            heroImage: 'assets/img/footer.jpg',
-            description: 'For BTN Manufacturing, we executed a detailed content strategy and on-page SEO campaign. The goal was to attract B2B clients through informative content and improved search engine rankings, leading to a marked increase in qualified leads.',
-            details: { Client: 'BTN Manufacturing', Year: '2024', Services: 'Content Strategy, SEO' },
-            galleryImages: ['https://i.imgur.com/vH5t3Yg.jpeg', 'https://i.imgur.com/9n9sWlH.jpeg']
+            heroImage: 'assets/img/btn1.png',
+            url: 'projects.html'
         },
         {
             id: 'p5',
             title: 'Kazubaa Events',
             category: 'Event Marketing & Social Promotion',
-            heroImage: 'assets/img/footer.jpg',
-            description: 'Our work with Kazubaa Events involved creating a buzzworthy social media campaign for their annual summer festival. We utilized influencer marketing and engaging video content to sell out the event weeks in advance.',
-            details: { Client: 'Kazubaa Events', Year: '2024', Services: 'Social Media, Event Marketing' },
-            galleryImages: ['https://picsum.photos/800/600?random=6', 'https://picsum.photos/800/600?random=7', 'https://picsum.photos/800/600?random=8']
+            heroImage: 'assets/img/k1.png',
+            url: 'projects.html'
         },
         {
             id: 'p6',
             title: 'DuraSeal',
             category: 'Corporate Branding & Web Design',
-            heroImage: 'assets/img/footer.jpg',
-            description: 'We undertook a complete rebranding for DuraSeal, a leader in industrial materials. This included a new, modern logo, a full brand style guide, and a responsive, professional website to better showcase their products to a global audience.',
-            details: { Client: 'DuraSeal International', Year: '2023', Services: 'Branding, Web Design, UX/UI' },
-            galleryImages: ['https://picsum.photos/800/600?random=9', 'https://picsum.photos/800/600?random=10']
+            heroImage: 'assets/img/d1.png',
+            url: 'projects.html'
         }
     ];
 
-    // B. DYNAMICALLY CREATE PROJECT CARDS
+    // B. DYNAMICALLY CREATE PROJECT CARDS (as links)
     const projectsGrid = document.querySelector('.projects-grid');
     if (projectsGrid) {
         projectsData.forEach(project => {
-            const item = document.createElement('div');
-            item.className = 'project-item';
-            item.setAttribute('data-project-id', project.id);
-            item.innerHTML = `<div class="project-image-wrapper"><img src="${project.heroImage}" alt="${project.title}"></div><div class="project-info"><h3>${project.title}</h3><p>${project.category}</p></div>`;
-            projectsGrid.appendChild(item);
+            // Create an anchor tag for the card
+            const cardLink = document.createElement('a');
+            cardLink.href = project.url;
+            cardLink.className = 'project-card';
+            cardLink.setAttribute('data-project-id', project.id);
+
+            // Set the inner HTML for the card content
+            cardLink.innerHTML = `
+                <div class="project-image-wrapper">
+                    <img src="${project.heroImage}" alt="${project.title}">
+                </div>
+                <div class="project-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.category}</p>
+                </div>
+            `;
+            projectsGrid.appendChild(cardLink);
         });
     }
 
-    // C. FINAL IMMERSIVE MODAL LOGIC
-    const modal = document.getElementById('project-modal');
-    if (modal) {
-        const closeModalBtn = modal.querySelector('.close-modal-btn');
+    // C. MODAL LOGIC (COMPLETELY REMOVED)
 
-        const openModal = (projectId) => {
-            const project = projectsData.find(p => p.id === projectId);
-            if (!project) return;
-            document.getElementById('popup-title').textContent = project.title;
-            document.getElementById('popup-category').textContent = project.category;
-            document.getElementById('popup-hero-image').src = project.heroImage;
-            document.getElementById('popup-description').textContent = project.description;
-            const detailsList = document.getElementById('popup-details-list');
-            detailsList.innerHTML = '';
-            for (const [key, value] of Object.entries(project.details)) {
-                detailsList.innerHTML += `<dt>${key}</dt><dd>${value}</dd>`;
-            }
-            const galleryGrid = document.getElementById('popup-gallery-grid');
-            galleryGrid.innerHTML = '';
-            project.galleryImages.forEach(imgSrc => {
-                galleryGrid.innerHTML += `<div><img src="${imgSrc}" alt="${project.title} gallery image"></div>`;
-            });
-            modal.classList.add('is-open');
-            document.body.style.overflow = 'hidden';
-            gsap.from(".modal-header > *", { duration: 0.6, y: -30, opacity: 0, stagger: 0.1, ease: 'power3.out', delay: 0.4 });
-            gsap.from(".modal-hero-image, .project-details-column, .popup-gallery", { duration: 0.8, y: 50, opacity: 0, stagger: 0.15, ease: 'power3.out', delay: 0.6 });
-        };
-
-        const closeModal = () => {
-            modal.classList.remove('is-open');
-            document.body.style.overflow = '';
-        };
-
-        projectsGrid.addEventListener('click', e => {
-            const item = e.target.closest('.project-item');
-            if (item) openModal(item.dataset.projectId);
-        });
-        closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-    }
-
-    // GSAP Scroll Animation for the main grid
+    // GSAP Scroll Animation for the grid (unchanged)
     if (typeof gsap !== 'undefined') {
-        gsap.from(".project-item", {
-            scrollTrigger: { trigger: ".projects-grid", start: "top 80%" },
-            duration: 0.8, y: 50, opacity: 0, stagger: 0.1,
+        gsap.from(".project-card", {
+            scrollTrigger: {
+                trigger: ".projects-grid",
+                start: "top 80%"
+            },
+            duration: 0.8,
+            y: 50,
+            opacity: 0,
+            stagger: 0.1,
         });
     }
 });
-
 
 
 

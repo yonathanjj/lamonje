@@ -53,13 +53,14 @@ body {
 }
 
 .hero-headline {
-    font-size: clamp(4rem, 12vw, 9rem);
+    font-size: clamp(3rem, 10vw, 6.5rem);
     font-weight: 700;
-    /* CHANGED: Increased line-height to fix text overlap */
     line-height: 1.1;
     letter-spacing: -0.05em;
     margin: 0 0 2rem 0;
 }
+
+
 .hero-headline span {
     display: inline-block;
 }
@@ -95,82 +96,256 @@ body {
     opacity: 0.8; /* Slightly more visible */
 }
 
-/* --- 4. Mission Section --- */
-.mission-section { padding: 10rem 0; text-align: center; }
-.mission-statement { margin-bottom: 8rem; }
-.mission-intro-text {
-    font-size: clamp(1.75rem, 5vw, 3rem);
-    font-weight: 600;
-    line-height: 1.3;
-    max-width: 30ch;
-    margin: 0 auto;
+/* about.css (Replace the Mission and Story section styles with this block) */
+
+/* --- 4. Mission Section (Corrected) --- */
+.mission-section {
+    padding: 10rem 0;
+    text-align: center;
 }
+
+.mission-statement {
+    margin-bottom: 8rem;
+}
+
+.mission-intro-text {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.7;
+    max-width: 50ch;
+    margin: 0 auto;
+    color: var(--text-subtle);
+}
+
 .vision-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; text-align: left;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 4rem;
 }
-.statement-block h3 { font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0; }
-.statement-block p { margin: 0; line-height: 1.7; color: var(--text-subtle); max-width: 40ch; }
+
+.statement-block h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+}
+
+.statement-block p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--text-subtle);
+    max-width: 40ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* about.css (Replace the old story section CSS with this) */
 
 /* --- 5. Story Section --- */
 .story-section {
     background-color: var(--light-bg);
     color: var(--text-dark);
-    padding: 10rem 0;
+    padding: 10rem 2rem; /* Padding for desktop */
     text-align: center;
+    transition: padding 0.3s ease; /* Smooth transition for resizing */
 }
+
+.story-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .story-text {
     font-size: 1.25rem;
     line-height: 1.8;
     max-width: 70ch;
     margin: 0 auto;
+    transition: font-size 0.3s ease; /* Smooth transition for resizing */
 }
 
-/* --- 6. Values Section --- */
-.values-section { padding: 10rem 0; text-align: center; }
+/* --- ADDED: Responsive Styles for the Story Section --- */
+@media (max-width: 768px) {
+    .story-section {
+        /* CHANGED: Dramatically reduced padding for mobile */
+        padding: 6rem 2rem;
+    }
+
+    .story-text {
+        /* CHANGED: Left-align for better readability */
+        text-align: left;
+        /* CHANGED: Slightly smaller font size for mobile */
+        font-size: 1.1rem;
+    }
+}
+
+/* --- RESPONSIVE UPDATE (To ensure both sections look good on mobile) --- */
+@media (max-width: 992px) {
+    /* Your other responsive styles... */
+    .vision-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+
+
+/* --- 4. OUR VALUES SECTION --- */
+.values-section {
+    background-color: var(--dark-bg);
+    padding: 10rem 2rem;
+}
+
+.values-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .values-grid {
     margin-top: 4rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    text-align: left;
 }
-.value-card {
-    background-color: #1a1a1a; padding: 2rem;
-    border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);
-}
-.value-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.value-card h3 { font-size: 1.5rem; margin: 0 0 0.5rem 0; }
-.value-card p { color: var(--text-subtle); line-height: 1.6; }
 
-/* --- 7. Testimonials Section --- */
+.value-card {
+    background-color: #1a1a1a;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.value-card:hover {
+    background-color: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.value-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 103, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* ADDED: Smooth transition for the transform property */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ADDED: The new hover animation rule */
+.value-card:hover .value-icon {
+    /* Rotates the icon 360 degrees clockwise */
+    transform: rotate(360deg);
+}
+
+.value-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--orange);
+    stroke-width: 1.5;
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-light);
+}
+
+.value-card p {
+    color: #9CA3AF;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* about.css (Replace the old testimonials section CSS with this) */
+
+/* --- 5. TESTIMONIALS SECTION --- */
 .testimonials-section {
-    background-color: var(--light-bg);
+    background-color: #E0E1F0; /* A soft, modern lavender-grey */
     padding: 8rem 0;
     overflow: hidden;
 }
-.testimonials-section .section-subheading { text-align: center; color: var(--text-dark); }
-.testimonial-scroller { display: flex; width: max-content; flex-wrap: nowrap; }
-.testimonial-scroller:first-of-type { margin-bottom: 2rem; }
+
+.testimonials-section .section-subheading {
+    text-align: center;
+    color: var(--text-dark);
+    /* CHANGED: Make the heading significantly larger and bolder */
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-transform: none; /* Remove uppercase for a cleaner look */
+    /* CHANGED: Increase the space between the title and the scrollers */
+    margin-bottom: 4rem;
+}
+
+.testimonial-scroller {
+    display: flex;
+    width: max-content;
+    flex-wrap: nowrap;
+}
+
+.testimonial-scroller:first-of-type {
+    margin-bottom: 2rem;
+}
+
 .testimonial-list {
-    display: flex; flex-wrap: nowrap; gap: 2rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
     animation: scroll 60s linear infinite;
 }
-.testimonial-scroller[data-direction="right"] .testimonial-list { animation-direction: reverse; }
-.testimonial-card {
-    width: 400px; background-color: var(--dark-bg); color: var(--text-light);
-    padding: 2rem; border-radius: 16px; flex-shrink: 0;
+
+.testimonial-scroller[data-direction="right"] .testimonial-list {
+    animation-direction: reverse;
 }
-.testimonial-quote { font-size: 1.1rem; line-height: 1.6; margin: 0 0 1.5rem 0; font-weight: 500; }
-.testimonial-author { display: flex; align-items: center; gap: 1rem; }
-.author-avatar img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-.author-name { font-weight: 600; }
-.author-title { color: var(--text-subtle); font-size: 0.9rem; }
+
+.testimonial-card {
+    width: 400px;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 2rem;
+    border-radius: 16px;
+    flex-shrink: 0;
+}
+
+.testimonial-quote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    font-weight: 500;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name {
+    font-weight: 600;
+}
+
+.author-title {
+    color: #9CA3AF;
+    font-size: 0.9rem;
+}
 
 @keyframes scroll {
-    to { transform: translate(calc(-50% - 1rem)); }
+    to {
+        transform: translate(calc(-50% - 1rem));
+    }
 }
 
 /* --- 8. Final CTA Section --- */

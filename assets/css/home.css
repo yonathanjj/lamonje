@@ -368,9 +368,8 @@ body {
 
 
 
-/* ================================== */
-/* == FINAL "FEATURED PROJECTS" SECTION == */
-/* ================================== */
+/* projects.css (CSS for the project section without a modal) */
+
 .projects-section {
     padding: 8rem 2rem;
     background-color: #ffffff;
@@ -378,7 +377,7 @@ body {
 }
 
 .projects-container {
-    max-width: 1300px; /* CHANGED: Wider container for bigger cards */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -386,134 +385,93 @@ body {
     text-align: center;
     margin-bottom: 4rem;
 }
-.projects-header .section-heading { margin-bottom: 0.5rem; }
-.view-all-link { text-decoration: none; color: #6b7280; }
+.projects-header .section-heading {
+    margin: 0;
+    font-size: 2.5rem;
+}
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* CHANGED: Increased gap for the larger cards */
-    gap: 4rem 2.5rem;
+    gap: 3rem 2rem;
 }
 
-.project-item { cursor: pointer; }
+/* The card is now an 'a' tag */
+.project-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
 
 .project-image-wrapper {
     overflow: hidden;
     border-radius: 12px;
-    /* CHANGED: Taller aspect ratio for a more substantial look */
     aspect-ratio: 4 / 3.5;
     box-shadow: 0 10px 20px -10px rgba(0,0,0,0.1);
     transition: box-shadow 0.3s ease;
 }
 .project-image-wrapper img {
-    width: 100%; height: 100%; object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.project-item:hover .project-image-wrapper img { transform: scale(1.05); }
-.project-item:hover .project-image-wrapper { box-shadow: 0 20px 40px -15px rgba(0,0,0,0.2); }
+.project-card:hover .project-image-wrapper img {
+    transform: scale(1.05);
+}
+.project-card:hover .project-image-wrapper {
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.2);
+}
 
-.project-info { padding: 1.25rem 0.5rem; }
-.project-info h3 { font-size: 1.3rem; margin: 0; transition: color 0.3s ease; }
-.project-info p { color: #6b7280; margin-top: 0.25rem; }
-.project-item:hover .project-info h3 { color: var(--orange); }
+.project-info {
+    padding: 1rem 0.5rem;
+}
+.project-info h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+.project-info p {
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+.project-card:hover .project-info h3 {
+    color: var(--orange);
+}
 
-.projects-footer { text-align: center; margin-top: 5rem; }
+.projects-footer {
+    text-align: center;
+    margin-top: 4rem;
+}
 .show-more-btn {
-    background-color: var(--orange); color: white; padding: 16px 36px;
-    border-radius: 50px; text-decoration: none; font-weight: 600;
+    background-color: var(--orange);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
-.show-more-btn:hover { filter: brightness(110%); }
-
-/* ================================== */
-/* == FINAL IMMERSIVE POPUP MODAL == */
-/* ================================== */
-.project-popup-modal {
-    position: fixed; top: 0; right: 0; width: 100%; height: 100%;
-    z-index: 2000; overflow: hidden; visibility: hidden;
+.show-more-btn:hover {
+    filter: brightness(110%);
 }
-.project-popup-modal::before { /* Backdrop */
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(17, 15, 26, 0.6); backdrop-filter: blur(5px);
-    opacity: 0; transition: opacity 0.4s ease;
-}
-.project-popup-modal.is-open::before { opacity: 1; }
-.project-popup-modal.is-open { visibility: visible; }
-
-.modal-content {
-    position: absolute; top: 0; right: 0;
-    width: 100%; max-width: 95vw; height: 100%;
-    background-color: #f9fafb; overflow-y: auto;
-    box-shadow: -10px 0 50px -20px rgba(0,0,0,0.3);
-    transform: translateX(100%);
-    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-}
-.project-popup-modal.is-open .modal-content { transform: translateX(0); }
-
-.modal-header {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 2rem 3rem; border-bottom: 1px solid #e5e7eb;
-}
-#popup-title {
-    /* CHANGED: Added orange accent color */
-    color: var(--orange);
-    font-size: 2rem; margin: 0;
-}
-#popup-category { color: #6b7280; margin: 0; }
-.close-modal-btn {
-    background: #000000; border: none; width: 40px; height: 40px;
-    border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: all 0.3s;
-}
-.close-modal-btn:hover {
-    /* CHANGED: Orange accent on hover */
-    background-color: var(--orange);
-    color: black;
-    transform: rotate(90deg);
-}
-
-.modal-body { padding: 3rem; }
-.modal-hero-image { margin-bottom: 3rem; }
-.modal-hero-image img { width: 100%; border-radius: 8px; }
-
-.project-details-container {
-    display: grid; grid-template-columns: 2fr 1fr; gap: 3rem;
-    margin-bottom: 3rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 3rem;
-}
-.project-details-column h3 {
-    margin-top: 0; font-size: 1.25rem;
-    /* CHANGED: Added orange accent color */
-    color: var(--orange);
-}
-.description-column p { line-height: 1.7; color: #374151; }
-
-.info-column dl { margin: 0; }
-.info-column dt { font-weight: 600; color: #111827; margin-bottom: 0.25rem; }
-.info-column dd { color: #6b7280; margin: 0 0 1rem 0; }
-
-.popup-gallery h3 { font-size: 1.25rem; color: var(--orange); } /* CHANGED: Added orange accent */
-.popup-gallery-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-.popup-gallery-grid img { width: 100%; border-radius: 8px; }
 
 /* --- RESPONSIVE STYLES --- */
-@media (max-width: 1100px) { /* NEW: Breakpoint for 2 columns */
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
+
 @media (max-width: 768px) {
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-details-container { grid-template-columns: 1fr; }
-    .modal-header, .modal-body { padding: 1.5rem; }
-    .modal-content { max-width: 100vw; }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 
 
 
-
-/* style.css (Append this to your existing stylesheet) */
 
 /* ================================== */
 /* == FINAL "TRUSTED BY" SECTION == */

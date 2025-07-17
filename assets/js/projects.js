@@ -8,61 +8,61 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'p1',
             layout: 'full',
             tags: ['Campaign Marketing', 'Event Marketing'],
-            title: 'Finmap Financials Launch Event',
-            heroImage: 'assets/img/s.png',
+            title: 'Homna Limited',
+            heroImage: 'assets/img/h1.png',
             description: 'Executed a high-impact launch event and digital campaign for Finmap. Our team managed event logistics, PR, and a multi-channel digital marketing push that generated massive early-stage buzz and user sign-ups.',
             details: { Client: 'Finmap', Year: '2024', Services: 'Event Marketing, Campaign Marketing' },
-            galleryImages: ['https://picsum.photos/id/1015/800/600', 'https://picsum.photos/id/1016/800/600', 'https://picsum.photos/id/1018/800/600', 'https://picsum.photos/id/1025/800/600']
+            galleryImages: ['assets/img/h2.png', 'assets/img/h3.png', 'assets/img/h4.png']
         },
         {
             id: 'p2',
             layout: 'half',
             tags: ['Brand Strategy'],
-            title: 'Sky Hall Rebranding',
-            heroImage: 'https://images.unsplash.com/photo-1574950578143-858c61e3f317?q=80&w=1964&auto=format&fit=crop',
+            title: 'FreshMeals',
+            heroImage: 'assets/img/f1.png',
             description: 'Developed a sophisticated new brand identity for the Sky Hall event space. We defined their core brand strategy, creating a new logo, color palette, and messaging that elevated their position in the luxury market.',
             details: { Client: 'Sky Hall Events', Year: '2023', Services: 'Brand Strategy' },
-            galleryImages: ['https://picsum.photos/id/20/800/600', 'https://picsum.photos/id/22/800/600', 'https://picsum.photos/id/24/800/600', 'https://picsum.photos/id/25/800/600']
+            galleryImages: ['assets/img/f2.png', 'assets/img/f3.png', 'assets/img/f4.png']
         },
         {
             id: 'p3',
             layout: 'half',
             tags: ['Campaign Marketing'],
-            title: 'UltraViolet Fashion Campaign',
-            heroImage: 'https://images.unsplash.com/photo-1594744806497-882ace3a3036?q=80&w=1887&auto=format&fit=crop',
+            title: 'Psy addis',
+            heroImage: 'assets/img/p1.png',
             description: 'A social media campaign for the UltraViolet fashion line, featuring bold photography and influencer partnerships to capture a new, younger audience demographic and drive online sales.',
             details: { Client: 'UltraViolet', Year: '2024', Services: 'Campaign Marketing' },
-            galleryImages: ['https://picsum.photos/id/30/800/600', 'https://picsum.photos/id/31/800/600', 'https://picsum.photos/id/32/800/600', 'https://picsum.photos/id/33/800/600']
+            galleryImages: ['assets/img/p2.png', 'assets/img/p3.png', 'assets/img/p4.png']
         },
         {
             id: 'p4',
             layout: 'full',
             tags: ['Brand Strategy'],
-            title: 'BEAR Puzzles Identity',
-            heroImage: 'https://images.unsplash.com/photo-1596701062354-3e9c59325e36?q=80&w=1894&auto=format&fit=crop',
+            title: 'BTN Manufacturing',
+            heroImage: 'assets/img/btn1.png',
             description: 'Created a playful and engaging brand strategy for BEAR, a new line of 3D puzzles. The identity and packaging design stands out on shelves and has a strong unboxing experience.',
             details: { Client: 'Cartonix', Year: '2023', Services: 'Brand Strategy' },
-            galleryImages: ['https://picsum.photos/id/40/800/600', 'https://picsum.photos/id/41/800/600', 'https://picsum.photos/id/42/800/600', 'https://picsum.photos/id/44/800/600']
+            galleryImages: ['assets/img/btn2.png', 'assets/img/btn3.png', 'assets/img/btn4.png']
         },
         {
             id: 'p5',
             layout: 'half',
             tags: ['Event Marketing'],
-            title: 'Sonmax Auto Show',
-            heroImage: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop',
+            title: 'Kazubaa Events',
+            heroImage: 'assets/img/k1.png',
             description: 'We managed the activation marketing for Sonmax Auto at the annual motor show, designing a booth and interactive experience that generated a record number of leads for their sales team.',
             details: { Client: 'Sonmax Auto', Year: '2024', Services: 'Event Marketing' },
-            galleryImages: ['https://picsum.photos/id/51/800/600', 'https://picsum.photos/id/53/800/600', 'https://picsum.photos/id/54/800/600', 'https://picsum.photos/id/58/800/600']
+            galleryImages: ['assets/img/k2.png', 'assets/img/k3.png', 'assets/img/k3.png']
         },
         {
             id: 'p6',
             layout: 'half',
             tags: ['Campaign Marketing'],
-            title: 'Promin Playlist Launch',
-            heroImage: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop',
+            title: 'DuraSeal',
+            heroImage: 'assets/img/d1.png',
             description: 'Launched a digital campaign to promote a new Spotify playlist. The campaign utilized targeted ads and social content, exceeding subscriber goals by 150% in the first month.',
             details: { Client: 'Promin', Year: '2023', Services: 'Campaign Marketing' },
-            galleryImages: ['https://picsum.photos/id/60/800/600', 'https://picsum.photos/id/61/800/600', 'https://picsum.photos/id/63/800/600', 'https://picsum.photos/id/65/800/600']
+            galleryImages: ['assets/img/d2.png', 'assets/img/d3.png', 'assets/img/d4.png']
         },
     ];
 
