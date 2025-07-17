@@ -1,0 +1,169 @@
+/* about.css */
+
+/* --- 1. Root Variables & General Setup --- */
+:root {
+    --orange: #FF6700;
+    --dark-bg: #111111;
+    --light-bg: #F9FAFB;
+    --text-light: #F9FAFB;
+    --text-dark: #1F2937;
+    --text-subtle: #6B7280;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    margin: 0;
+    color: var(--text-light);
+}
+
+/* --- 2. Reusable Utility Classes (DRY Principle) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-subheading {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--orange);
+    margin-bottom: 2rem;
+}
+
+/* --- 3. Hero Section (Full-Bleed) --- */
+.hero-split-section {
+    min-height: 100vh;
+    display: flex;
+    width: 100%;
+}
+.hero-left {
+    flex-basis: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    background-color: var(--dark-bg);
+}
+.hero-headline {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    margin-bottom: 2rem;
+}
+.hero-headline span { display: inline-block; }
+.hero-subheadline {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 45ch;
+    color: var(--text-subtle);
+}
+.hero-right {
+    flex-basis: 45%;
+    position: relative;
+    overflow: hidden;
+}
+.hero-video-bg {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%; min-height: 100%;
+    object-fit: cover; opacity: 0.5;
+}
+
+/* --- 4. Mission Section --- */
+.mission-section { padding: 10rem 0; text-align: center; }
+.mission-statement { margin-bottom: 8rem; }
+.mission-intro-text {
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.3;
+    max-width: 30ch;
+    margin: 0 auto;
+}
+.vision-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; text-align: left;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 4rem;
+}
+.statement-block h3 { font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0; }
+.statement-block p { margin: 0; line-height: 1.7; color: var(--text-subtle); max-width: 40ch; }
+
+/* --- 5. Story Section --- */
+.story-section {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    padding: 10rem 0;
+    text-align: center;
+}
+.story-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 70ch;
+    margin: 0 auto;
+}
+
+/* --- 6. Values Section --- */
+.values-section { padding: 10rem 0; text-align: center; }
+.values-grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+.value-card {
+    background-color: #1a1a1a; padding: 2rem;
+    border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);
+}
+.value-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.value-card h3 { font-size: 1.5rem; margin: 0 0 0.5rem 0; }
+.value-card p { color: var(--text-subtle); line-height: 1.6; }
+
+/* --- 7. Testimonials Section --- */
+.testimonials-section {
+    background-color: var(--light-bg);
+    padding: 8rem 0;
+    overflow: hidden;
+}
+.testimonials-section .section-subheading { text-align: center; color: var(--text-dark); }
+.testimonial-scroller { display: flex; width: max-content; flex-wrap: nowrap; }
+.testimonial-scroller:first-of-type { margin-bottom: 2rem; }
+.testimonial-list {
+    display: flex; flex-wrap: nowrap; gap: 2rem;
+    animation: scroll 60s linear infinite;
+}
+.testimonial-scroller[data-direction="right"] .testimonial-list { animation-direction: reverse; }
+.testimonial-card {
+    width: 400px; background-color: var(--dark-bg); color: var(--text-light);
+    padding: 2rem; border-radius: 16px; flex-shrink: 0;
+}
+.testimonial-quote { font-size: 1.1rem; line-height: 1.6; margin: 0 0 1.5rem 0; font-weight: 500; }
+.testimonial-author { display: flex; align-items: center; gap: 1rem; }
+.author-avatar img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+.author-name { font-weight: 600; }
+.author-title { color: var(--text-subtle); font-size: 0.9rem; }
+
+@keyframes scroll {
+    to { transform: translate(calc(-50% - 1rem)); }
+}
+
+/* --- 8. Final CTA Section --- */
+.cta-section { padding: 8rem 0; text-align: center; }
+.cta-section h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0 0 2rem 0; }
+.cta-button {
+    background-color: var(--orange); color: white;
+    padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none;
+    font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease;
+}
+.cta-button:hover { transform: scale(1.05); filter: brightness(110%); }
+
+/* --- 9. Responsive Styles --- */
+@media (max-width: 992px) {
+    .hero-split-section { flex-direction: column; min-height: auto; }
+    .hero-right { min-height: 50vh; }
+    .vision-grid { grid-template-columns: 1fr; }
+}
