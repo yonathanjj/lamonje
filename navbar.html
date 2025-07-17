@@ -1,0 +1,240 @@
+<!-- navbar.html -->
+
+<!-- GSAP & Google Font (Inter for a clean but friendly look) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* CSS for the NEW CREATIVE Navbar */
+    :root {
+        --orange: #FF6700;
+        --text-dark: #111827;
+        --bg-light: #F9FAFB; /* A soft off-white */
+        --border-color: #E5E7EB;
+        --nav-height: 85px;
+    }
+
+    /* --- Base Nav Styles --- */
+    .main-nav {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: var(--nav-height);
+        background-color: var(--bg-light);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 0 2rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1300px;
+    }
+
+    /* --- Logo --- */
+    .nav-logo a {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        text-decoration: none;
+        letter-spacing: -1.5px;
+        transition: color 0.3s ease;
+    }
+    .nav-logo a:hover {
+        color: var(--orange);
+    }
+
+    /* --- Desktop Nav Links --- */
+    .nav-links-desktop {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .nav-links-main {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .nav-links-main a {
+        position: relative;
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        padding: 8px 4px;
+    }
+    /* Creative underline effect */
+    .nav-links-main a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--orange);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .nav-links-main a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    /* --- The "Contact" Button (Not Cramped!) --- */
+    .btn-contact {
+        background-color: transparent;
+        color: var(--text-dark);
+        border: 2px solid var(--text-dark);
+        padding: 14px 32px; /* MORE PADDING! */
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: color 0.4s ease-out, border-color 0.4s ease-out;
+    }
+    .btn-contact::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: var(--orange);
+        border-radius: 50px;
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: -1;
+    }
+    .btn-contact:hover {
+        color: white;
+        border-color: var(--orange);
+    }
+    .btn-contact:hover::before {
+        transform: translateY(0);
+    }
+
+    /* --- MOBILE MENU (FIXED & FUNCTIONAL) --- */
+    .hamburger-menu {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1002;
+    }
+    .hamburger-menu .bar {
+        display: block; width: 28px; height: 3px;
+        margin: 5px auto; background-color: var(--text-dark);
+        border-radius: 2px;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .nav-links-mobile {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background-color: var(--bg-light);
+        display: flex; flex-direction: column;
+        justify-content: center; align-items: center;
+        gap: 2.5rem;
+        /* Hide menu by default */
+        clip-path: circle(0% at 100% 0);
+        transition: clip-path 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    .nav-links-mobile a {
+        text-decoration: none; color: var(--text-dark);
+        font-size: 2.5rem; font-weight: 500;
+        opacity: 0; /* Hidden for GSAP animation */
+        transform: translateY(30px);
+    }
+
+    /* State when mobile menu is OPEN */
+    .main-nav.nav-open .nav-links-mobile {
+        clip-path: circle(150% at 100% 0);
+    }
+    .main-nav.nav-open .hamburger-menu .bar { background-color: var(--text-dark); }
+    .main-nav.nav-open .hamburger-menu .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .main-nav.nav-open .hamburger-menu .bar:nth-child(2) { opacity: 0; }
+    .main-nav.nav-open .hamburger-menu .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* --- Responsive Breakpoint --- */
+    @media (max-width: 992px) {
+        .nav-links-desktop { display: none; }
+        .hamburger-menu { display: block; }
+    }
+</style>
+
+<!-- HTML Structure -->
+<nav class="main-nav" id="main-nav-component">
+    <div class="nav-wrapper">
+        <div class="nav-logo">
+            <a href="index.html">yourbrand</a>
+        </div>
+
+        <div class="nav-links-desktop">
+            <div class="nav-links-main">
+                <a href="#">About</a>
+                <a href="#">Projects</a>
+                <a href="#">Services</a>
+                <a href="#">Gallery</a>
+            </div>
+            <a href="#" class="btn-contact">Contact</a>
+        </div>
+
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <div class="nav-links-mobile">
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Services</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+    </div>
+</nav>
+
+<script>
+    // JS for the Navbar (Robust & Functional)
+    const nav = document.getElementById('main-nav-component');
+    if (nav) {
+        const hamburger = nav.querySelector('.hamburger-menu');
+        const mobileMenuLinks = nav.querySelectorAll('.nav-links-mobile a');
+
+        hamburger.addEventListener('click', () => {
+            const isNavOpen = nav.classList.toggle('nav-open');
+
+            // Lock body scroll when menu is open
+            document.body.style.overflow = isNavOpen ? 'hidden' : 'auto';
+
+            if (isNavOpen) {
+                // Animate links INTO view
+                gsap.to(mobileMenuLinks, {
+                    duration: 0.6,
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.1,
+                    ease: 'power3.out',
+                    delay: 0.3 // Wait for menu background to animate in
+                });
+            } else {
+                // Instantly reset links to prepare for next opening
+                gsap.set(mobileMenuLinks, {
+                    opacity: 0,
+                    y: 30
+                });
+            }
+        });
+    }
+</script>

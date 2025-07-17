@@ -1,0 +1,177 @@
+<!-- footer.html -->
+
+<style>
+    /* CSS for the NEW CREATIVE Footer */
+    :root {
+        --orange: #FF6700;
+        --footer-bg: #111111;
+        --footer-text-light: #F9FAFB;
+        --footer-text-mid: #9CA3AF;
+        --footer-text-dark: #1F2937;
+        /* EASY TO CHANGE: Put your background image URL here! */
+        --footer-bg-image: url('assets/img/footer.jpg');
+    }
+
+    .main-footer {
+        position: relative;
+        padding: 8rem 2rem 4rem;
+        background-color: var(--footer-bg);
+        background-image: var(--footer-bg-image);
+        background-size: cover;
+        background-position: center;
+        color: var(--footer-text-mid);
+    }
+    .main-footer::before { /* Overlay for text readability */
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(to top, rgba(17, 17, 17, 0.95), rgba(17, 17, 17, 0.8));
+        z-index: 1;
+    }
+
+    .footer-wrapper {
+        position: relative; z-index: 2;
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+
+    /* --- Top Section: "Let's Talk" --- */
+    .footer-top {
+        text-align: center;
+        margin-bottom: 6rem;
+    }
+    .footer-top p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    .footer-top .email-link {
+        font-size: clamp(2rem, 8vw, 5rem); /* Responsive font size */
+        font-weight: 700;
+        color: var(--footer-text-light);
+        text-decoration: none;
+        line-height: 1.1;
+        display: inline-block;
+        position: relative;
+    }
+    /* Underline animation */
+    .footer-top .email-link::after {
+        content: '';
+        position: absolute; bottom: -5px; left: 0;
+        width: 100%; height: 4px;
+        background-color: var(--orange);
+        transform: scaleX(0);
+        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .footer-top .email-link:hover::after {
+        transform: scaleX(1);
+    }
+
+    /* --- Middle Section: Links --- */
+    .footer-middle {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        padding: 4rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-column h4 {
+        color: var(--footer-text-light);
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.5px;
+    }
+    .footer-column ul {
+        list-style: none; padding: 0;
+    }
+    .footer-column ul li a {
+        display: inline-block;
+        color: var(--footer-text-mid);
+        text-decoration: none;
+        margin-bottom: 1rem;
+        transition: color 0.3s, transform 0.3s;
+    }
+    /* The cool arrow hover effect */
+    .footer-column ul li a::before {
+        content: '→';
+        display: inline-block;
+        margin-right: 8px;
+        opacity: 0;
+        color: var(--orange);
+        transform: translateX(-10px);
+        transition: opacity 0.3s, transform 0.3s;
+    }
+    .footer-column ul li a:hover {
+        color: var(--footer-text-light);
+        transform: translateX(5px);
+    }
+    .footer-column ul li a:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* --- Bottom Bar --- */
+    .footer-bottom {
+        padding-top: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+</style>
+
+<!-- HTML Structure -->
+<footer class="main-footer" id="main-footer-component">
+    <div class="footer-wrapper">
+        <div class="footer-top">
+            <p>Have a project in mind?</p>
+            <a href="mailto:hello@yourbrand.com" class="email-link">LET'S TALK</a>
+        </div>
+
+        <div class="footer-middle">
+            <div class="footer-column">
+                <h4>NAVIGATION</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>CONTACT</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Get a Quote</a></li>
+                    <li><a href="#">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>SOCIAL</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Dribbble</a></li>
+                    <li><a href="#">Twitter (X)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2024 YourBrand. All Rights Reserved.</span>
+            <span>Design with ♥</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // No JS needed for footer animations, it's all CSS!
+    // But good to confirm it's loaded.
+    const footerComponent = document.getElementById('main-footer-component');
+    if (footerComponent) {
+        console.log("Creative footer loaded successfully.");
+    }
+</script>

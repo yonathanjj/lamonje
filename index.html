@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Creative Brand</title>
+
+    <!-- Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" href="assets/css/home.css">
+
+    <!-- GSAP (for animations) - placed in head to load before scripts that use it -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
+    <!-- Link to the main JavaScript file -->
+    <script src="assets/js/home.js" defer></script>
+    <script src="loader.js" defer></script>
+
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+    <!-- The WebGL canvas will render our live gradient here -->
+    <canvas id="gradient-canvas"></canvas>
+
+    <div class="hero-content">
+        <h1 class="hero-headline">
+            <span>We do brand strategy,</span>
+            <span>digital marketing,</span>
+            <span>and activation.</span>
+        </h1>
+        <div class="hero-cta-container">
+            <a href="#work" class="hero-btn primary">Explore Our Work</a>
+            <a href="#about" class="hero-btn secondary">Learn About Us</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================== -->
+<!-- == START: NEW "WHO WE ARE" (ABOUT) SECTION == -->
+<!-- ====================================================== -->
+<section class="about-section" id="about">
+    <div class="about-wrapper">
+        <div class="about-left">
+            <h2 class="section-heading">Who We Are</h2>
+        </div>
+        <div class="about-right">
+            <p class="about-text">
+                We're a full-service marketing agency turning ideas into results. From branding to digital strategy, we help your brand speak loud and clear.
+            </p>
+            <a href="#" class="about-btn">Learn More</a>
+        </div>
+    </div>
+</section>
+<!-- ====================================================== -->
+<!-- === END: NEW "WHO WE ARE" (ABOUT) SECTION === -->
+<!-- ====================================================== -->
+
+
+<!-- ====================================================== -->
+<!-- == START: REWRITTEN "WHAT WE DO" (SERVICES) SECTION == -->
+<!-- ====================================================== -->
+<section class="services-section" id="services">
+    <div class="services-wrapper">
+        <div class="services-left">
+            <h2 class="section-heading">What We Do</h2>
+        </div>
+        <div class="services-right">
+            <ul class="services-list">
+                <!-- Service Item 1 -->
+                <li class="service-item">
+                    <div class="service-header">
+                        <span class="service-number">1</span>
+                        <h3 class="service-name">Branding</h3>
+                        <span class="service-arrow">→</span>
+                    </div>
+                    <div class="service-content">
+                        <p>We design logos, voice, and identity that speak your story. A strong brand stands out, builds trust, and creates a lasting connection with your audience.</p>
+                    </div>
+                </li>
+                <!-- Service Item 2 -->
+                <li class="service-item">
+                    <div class="service-header">
+                        <span class="service-number">2</span>
+                        <h3 class="service-name">Social Media Management</h3>
+                        <span class="service-arrow">→</span>
+                    </div>
+                    <div class="service-content">
+                        <p>We manage your social channels, create engaging content, and grow your audience. Our strategies are designed to build community and drive meaningful interactions.</p>
+                    </div>
+                </li>
+                <!-- Service Item 3 -->
+                <li class="service-item">
+                    <div class="service-header">
+                        <span class="service-number">3</span>
+                        <h3 class="service-name">Digital Advertising</h3>
+                        <span class="service-arrow">→</span>
+                    </div>
+                    <div class="service-content">
+                        <p>From Google Ads to social media campaigns, we create targeted advertising strategies that deliver measurable results, increase conversions, and maximize your ROI.</p>
+                    </div>
+                </li>
+                <!-- Service Item 4 -->
+                <li class="service-item">
+                    <div class="service-header">
+                        <span class="service-number">4</span>
+                        <h3 class="service-name">Content Creation</h3>
+                        <span class="service-arrow">→</span>
+                    </div>
+                    <div class="service-content">
+                        <p>We produce high-quality content, including blog posts, videos, and graphics, that captures attention, tells your story, and provides value to your customers.</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="services-cta-container">
+                <a href="#" class="services-btn primary">Start project</a>
+                <a href="#" class="services-btn secondary">Services overview</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- === START: NEW "FEATURED PROJECTS" SECTION === -->
+<!-- ====================================================== -->
+<section class="projects-section" id="projects">
+    <div class="projects-header">
+        <h2 class="section-heading">Featured Projects</h2>
+        <a href="#" class="view-all-link">See latest projects ↓</a>
+    </div>
+
+    <div class="projects-grid">
+        <!-- Project cards will be dynamically generated by JS -->
+        <!-- But here's an example of one for structure reference -->
+        <!--
+        <div class="project-card" data-project-id="p1">
+            <div class="project-image">
+                <img src="path/to/image.jpg" alt="Project Title">
+            </div>
+            <div class="project-info">
+                <h3>Project Title</h3>
+                <p>Category / Tags</p>
+            </div>
+        </div>
+        -->
+    </div>
+
+    <div class="projects-footer">
+        <a href="#" class="show-more-btn">Show More</a>
+    </div>
+</section>
+<!-- ====================================================== -->
+<!-- === END: NEW "FEATURED PROJECTS" SECTION === -->
+<!-- ====================================================== -->
+
+
+<!-- ====================================================== -->
+<!-- === START: PROJECT POPUP MODAL STRUCTURE === -->
+<!-- (Place this just before the closing </body> tag) -->
+<!-- ====================================================== -->
+<div class="project-popup-modal" id="project-modal">
+    <div class="modal-backdrop"></div>
+    <div class="popup-content-wrapper">
+        <div class="popup-content">
+            <button class="close-modal-btn">×</button>
+            <div class="popup-header">
+                <h2 id="popup-title">Project Title</h2>
+                <p id="popup-category">Category</p>
+            </div>
+            <div class="popup-body">
+                <img id="popup-hero-image" src="" alt="Project hero image">
+                <p id="popup-description">Full project description goes here.</p>
+                <div class="popup-gallery" id="popup-gallery-grid">
+                    <!-- More project images will be added here by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ====================================================== -->
+<!-- == END: REWRITTEN "WHAT WE DO" (SERVICES) SECTION == -->
+<!-- ====================================================== -->
+
+<!-- Future sections will go here -->
+<!-- <section id="work">...</section> -->
+<!-- <section id="about">...</section> -->
+
+</body>
+</html>
