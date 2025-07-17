@@ -23,3 +23,5 @@ document.addEventListener("DOMContentLoaded", () => {
     loadComponent('navbar.html', 'navbar-placeholder');
     loadComponent('footer.html', 'footer-placeholder');
 });
+
+
