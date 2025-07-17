@@ -22,6 +22,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    margin-top: 4rem;
 }
 
 .section-subheading {
@@ -30,15 +31,18 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--orange);
-    margin-bottom: 2rem;
 }
 
-/* --- 3. Hero Section (Full-Bleed) --- */
+/* about.css (Replace the old hero section CSS with this) */
+
 .hero-split-section {
     min-height: 100vh;
     display: flex;
     width: 100%;
+    margin-top: 3rem; /* 👈 Add this line */
 }
+
+
 .hero-left {
     flex-basis: 55%;
     display: flex;
@@ -47,30 +51,48 @@ body {
     padding: 4rem;
     background-color: var(--dark-bg);
 }
+
 .hero-headline {
-    font-size: clamp(4rem, 12vw, 10rem);
+    font-size: clamp(4rem, 12vw, 9rem);
     font-weight: 700;
-    line-height: 0.9;
+    /* CHANGED: Increased line-height to fix text overlap */
+    line-height: 1.1;
     letter-spacing: -0.05em;
-    margin-bottom: 2rem;
+    margin: 0 0 2rem 0;
 }
-.hero-headline span { display: inline-block; }
+.hero-headline span {
+    display: inline-block;
+}
+
 .hero-subheadline {
     font-size: 1.25rem;
     line-height: 1.6;
     max-width: 45ch;
-    color: var(--text-subtle);
+    color: #9CA3AF;
 }
+
 .hero-right {
     flex-basis: 45%;
     position: relative;
     overflow: hidden;
+    /* CHANGED: Use flexbox to center the smaller video element */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem; /* Add padding to give the video space */
 }
+
 .hero-video-bg {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%; min-height: 100%;
-    object-fit: cover; opacity: 0.5;
+    /* CHANGED: Removed absolute positioning and min-width/height */
+    /* It is now a flex item, not a background */
+    position: relative;
+    width: 100%;
+    /* Set a max-width to prevent it from getting too large */
+    max-width: 450px;
+    /* Create a taller, portrait-style aspect ratio */
+    aspect-ratio: 9 / 11;
+    object-fit: cover;
+    opacity: 0.8; /* Slightly more visible */
 }
 
 /* --- 4. Mission Section --- */
