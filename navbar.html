@@ -5,7 +5,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-    /* === FINAL REFINED MODERN NAVBAR === */
+    /* === FINAL DARK GLASS MODERN NAVBAR === */
     :root {
         --orange: #FF6700;
         --text-dark: #111827;
@@ -26,11 +26,13 @@
         z-index: 1000;
         border-radius: 50px;
 
-        /* The Glassmorphism Effect */
-        background: rgba(255, 255, 255, 0.1);
+        /* NEW: The Dark Glassmorphism Effect */
+        /* A dark, slightly purple background with 50% opacity */
+        background: rgba(17, 17, 27, 0.5);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        /* A light border that pops on the dark background */
+        border: 1px solid rgba(255, 255, 255, 0.1);
 
         /* Smooth transitions for all properties */
         transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -42,10 +44,11 @@
         border-radius: 0;
         width: 100%;
         max-width: 100%;
-        /* CHANGED: Increased opacity for better contrast with black text */
-        background: rgba(255, 255, 255, 0.6);
-        border-color: rgba(255, 255, 255, 0.1);
+        /* Becomes slightly more opaque and loses the top border */
+        background: rgba(17, 17, 27, 0.7);
         border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
     }
 
     .nav-wrapper {
@@ -54,40 +57,33 @@
     }
 
     /* === TEXT COLOR LOGIC === */
-    .nav-logo a, .nav-links-main a {
-        transition: color 0.4s ease;
-    }
-
-    /* Default State (on hero): LIGHT text */
-    .nav-logo a, .nav-links-main a {
+    /* Text is now ALWAYS light to contrast with the dark navbar */
+    .nav-links-main a {
         color: var(--text-light);
         text-decoration: none;
         font-weight: 500;
+        transition: color 0.3s ease;
     }
-    .nav-logo a { font-size: 1.5rem; font-weight: 700; }
-
-    /* Scrolled State: DARK text */
-    .main-nav.scrolled .nav-logo a,
-    .main-nav.scrolled .nav-links-main a {
-        color: var(--text-dark);
-    }
-
-    /* === LAYOUT AND SPACING === */
-    .nav-links-desktop {
-        display: flex;
-        align-items: center;
-        /* CHANGED: Increased space between link groups */
-        gap: 3rem;
-    }
-    .nav-links-main {
-        display: flex;
-        /* CHANGED: Increased space between individual links */
-        gap: 2.5rem;
-    }
+.logo-img {
+    height: 40px; /* adjust as needed */
+    width: auto;
+    display: block;
+}
 
     /* Hover effect remains orange for brand consistency */
     .nav-links-main a:hover {
         color: var(--orange);
+    }
+
+    /* === LAYOUT AND SPACING (Kept from last revision) === */
+    .nav-links-desktop {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+    .nav-links-main {
+        display: flex;
+        gap: 2.5rem;
     }
 
     /* Contact Button */
@@ -106,11 +102,23 @@
     }
 
     /* Mobile Menu Styles */
-    .hamburger-menu { display: none; }
+    .hamburger-menu {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1002;
+    }
+    .hamburger-menu .bar {
+        display: block; width: 25px; height: 2px; margin: 5px auto;
+        /* NEW: Bars are always light */
+        background-color: var(--text-light);
+        border-radius: 2px;
+        transition: all 0.4s ease;
+    }
+
     @media (max-width: 992px) {
         .nav-links-desktop { display: none; }
         .hamburger-menu { display: block; }
-        /* Add styles for hamburger icon and mobile menu panel here */
     }
 
 </style>
@@ -119,22 +127,29 @@
 <nav class="main-nav" id="main-nav-component">
     <div class="nav-wrapper">
         <div class="nav-logo">
-            <a href="index.html">Lamonje</a>
+            <a href="index.html">
+                <img src="assets/img/lala.png" alt="Lamonje Logo" class="logo-img">
+            </a>
         </div>
+
         <div class="nav-links-desktop">
             <div class="nav-links-main">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#projects">Projects</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
             </div>
-            <a href="#" class="btn-contact">Contact</a>
+            <a href="contact.html" class="btn-contact">Contact</a>
         </div>
-        <!-- Hamburger Menu would go here for mobile -->
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
     </div>
 </nav>
 
 <script>
-    // JavaScript (Unchanged)
+    // JavaScript (Unchanged and still correct)
     // This simple, robust script should be in your main script.js
     const nav = document.getElementById('main-nav-component');
     if (nav) {

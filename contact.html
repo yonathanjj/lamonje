@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Lamonje</title>
+
+    <!-- Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Link to the stylesheet -->
+    <link rel="stylesheet" href="assets/css/contact.css">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+
+<!-- MAIN CONTENT WRAPPER -->
+<main class="contact-main">
+
+    <header class="contact-header">
+        <h1>Let’s Build Your Next Breakthrough</h1>
+        <p>Tell us about your brand, project, or idea—big or small.</p>
+    </header>
+
+    <div class="contact-wrapper">
+
+        <!-- CONTACT FORM (LEFT COLUMN) -->
+        <div class="form-container">
+            <form id="contact-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="full-name">Full Name *</label>
+                        <input type="text" id="full-name" name="fullName" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="company">Company / Organization</label>
+                        <input type="text" id="company" name="company" placeholder="Company name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone / WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+251...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Services Interested In</label>
+                    <div class="multi-select-grid">
+                        <div class="checkbox-wrapper"><input type="checkbox" id="branding" name="services" value="Branding"><label for="branding">Branding</label></div>
+                        <div class="checkbox-wrapper"><input type="checkbox" id="social" name="services" value="Social Media"><label for="social">Social Media</label></div>
+                        <div class="checkbox-wrapper"><input type="checkbox" id="ads" name="services" value="Ads"><label for="ads">Digital Ads</label></div>
+                        <div class="checkbox-wrapper"><input type="checkbox" id="content" name="services" value="Content"><label for="content">Content</label></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select a range</option>
+                            <option value="<1k"><$1,000</option>
+                            <option value="1k-5k">$1,000 – $5,000</option>
+                            <option value="5k-20k">$5,000 – $20,000</option>
+                            <option value="20k+">$20,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeline">Project Timeline</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">Select a timeline</option>
+                            <option value="ASAP">ASAP</option>
+                            <option value="1-3mo">1–3 Months</option>
+                            <option value="6mo+">6+ Months</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <div id="success-message" class="success-message">
+                <h3>Thanks! We'll reply within 1 business day.</h3>
+                <p>An auto-reply with your submission summary has been sent to your email.</p>
+            </div>
+        </div>
+
+        <!-- SIDEBAR (RIGHT COLUMN) -->
+        <aside class="sidebar">
+            <div class="quick-contact-block">
+                <h4>Direct Contact</h4>
+                <p>For quick inquiries or if you prefer to skip the form.</p>
+                <a href="mailto:hello@youragency.com" class="contact-link">hello@youragency.com</a>
+                <a href="tel:+251911123456" class="contact-link">+251 911 123 456</a>
+            </div>
+
+            <div class="quick-contact-block">
+                <h4>Book a Call</h4>
+                <p>Check our availability below and let us know your preferred date.</p>
+                <div id="mini-calendar" class="mini-calendar">
+                    <!-- Calendar will be generated by JavaScript -->
+                </div>
+                <a href="mailto:hello@youragency.com?subject=Booking a Discovery Call" class="sidebar-btn">Request a Call</a>
+            </div>
+
+            <div class="quick-contact-block">
+                <h4>Visit Us</h4>
+                <p>4th Floor, Creative Hub<br>Addis Ababa, Ethiopia</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126093.0039943501!2d38.68379133403273!3d9.022736113946272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24d49!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1678886568853!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<section class="faq-section">
+    <h2 class="faq-heading">Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question">How soon can we start?</button>
+            <div class="faq-answer"><p>Typically, we can kick off a new project within 1-2 weeks after the initial agreement, depending on our current project pipeline.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What does a typical project cost?</button>
+            <div class="faq-answer"><p>Project costs vary widely based on scope. Branding projects can start from $5,000, while ongoing social media management begins at $2,000/month. We provide a detailed quote after our discovery call.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Do you work with startups?</button>
+            <div class="faq-answer"><p>Absolutely! We love partnering with ambitious startups to build a strong brand foundation and an effective go-to-market strategy. We offer flexible packages tailored for new businesses.</p></div>
+        </div>
+    </div>
+</section>
+<div id="footer-placeholder"></div>
+
+<!-- GSAP for animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Page-specific JavaScript -->
+<script src="assets/js/contact.js"></script>
+
+<script src="loader.js"></script>
+</body>
+</html>
