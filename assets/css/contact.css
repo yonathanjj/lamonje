@@ -322,3 +322,11 @@ textarea {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+
+/* Hide the success message by default */
+#success-message {
+    display: none;
+}

@@ -62,24 +62,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- FORM SUBMISSION LOGIC ---
-    const form = document.getElementById('contact-form');
-    const successMessage = document.getElementById('success-message');
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- FORM SUBMISSION LOGIC ---
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
+        // Get the form and success message elements from the DOM
+        const form = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
 
-        console.log("Form submitted!");
-        for (let [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
+        // Add an event listener for the form's 'submit' event
+        form.addEventListener('submit', function (e) {
+            // 1. Prevent the browser's default form submission behavior
+            e.preventDefault();
 
-        gsap.to(form, { duration: 0.5, opacity: 0, onComplete: () => {
-            form.style.display = 'none';
-            successMessage.style.display = 'block';
-            gsap.from(successMessage, { duration: 0.5, opacity: 0, y: 20 });
-        }});
+            // 2. Get the form data and the Formspree URL
+            const formData = new FormData(form);
+            const formAction = form.getAttribute('action');
+
+            // 3. Submit the data to Formspree using fetch()
+            fetch(formAction, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json' // Important for getting a JSON response
+                }
+            }).then(response => {
+                // 4. Check if Formspree accepted the submission
+                if (response.ok) {
+                    // If successful, run the GSAP success animation
+                    console.log('Form submitted successfully to Formspree.');
+                    gsap.to(form, {
+                        duration: 0.5,
+                        opacity: 0,
+                        onComplete: () => {
+                            form.style.display = 'none'; // Hide form completely
+                            successMessage.style.display = 'block'; // Show success message
+                            gsap.from(successMessage, {
+                                duration: 0.5,
+                                opacity: 0,
+                                y: 20
+                            });
+                        }
+                    });
+                    form.reset(); // Clear the form fields for the next user
+                } else {
+                    // If there was an error, handle it
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            console.error('Formspree submission error:', data);
+                            alert('Oops! There was a problem submitting your form. Please try again.');
+                        }
+                    });
+                }
+            }).catch(error => {
+                // 5. Catch any network errors
+                console.error('Network error:', error);
+                alert('A network error occurred. Please check your connection and try again.');
+            });
+        });
     });
 
     // --- GSAP ENTRY ANIMATIONS ---
