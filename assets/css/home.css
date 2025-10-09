@@ -2,7 +2,10 @@
 
 :root {
     --orange: #FF6700;
-    --dark-bg: #110f1a; /* A darker, richer background */
+    --light-accent: #F3F9FE;
+    --grey-accent: #D3D3D3;
+    --dark-bg: #110f1a;
+    --webgl-bg: #1A001A; /* Deep Purple */
     --text-light: #F0F0F0;
 }
 
@@ -16,45 +19,64 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--dark-bg);
     color: var(--text-light);
+    overflow-x: hidden;
 }
+
+
+/* ====================================================== */
+/* ==         FINAL, CORRECTED HERO SECTION CSS        == */
+/* ====================================================== */
 
 .hero-section {
     position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     overflow: hidden;
-    text-align: center;
-    padding: 2rem;
 }
 
-/* --- THE VIDEO BACKGROUND --- */
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    z-index: 1; /* Behind content */
-    object-fit: cover;
-}
-
-/* --- HERO CONTENT --- */
-.hero-content {
-    position: relative;
-    z-index: 2; /* Above the video */
-    display: flex;
-    flex-direction: column;
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-background-gradient {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(
+        circle at 70% 30%,
+        rgba(255, 103, 0, 0.15),
+        rgba(26, 0, 26, 0.1) 40%,
+        rgba(17, 15, 26, 0) 70%
+    );
+    z-index: 0;
+}
+
+.hero-webgl {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    outline: none;
+}
+
+.hero-content {
+    grid-column: 1 / 2;
+    text-align: left;
 }
 
 .hero-headline {
-    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
     font-weight: 700;
     line-height: 1.15;
     color: var(--text-light);
@@ -64,23 +86,40 @@ body {
     display: block;
 }
 
-/* --- CTA BUTTONS WITH CURVED FILL ANIMATION --- */
 .hero-cta-container {
     display: flex;
     gap: 1.25rem;
     margin-top: 3.5rem;
     flex-wrap: wrap;
-    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .hero-section {
+        align-items: flex-start;
+        padding-top: 15vh;
+    }
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 0 1.5rem;
+    }
+    .hero-content {
+        align-items: center;
+        text-align: center;
+    }
+    .hero-cta-container {
+        justify-content: center;
+    }
 }
 
 .hero-btn {
-    position: relative; /* Required for the pseudo-element */
-    padding: 18px 40px; /* A bit more spacious */
+    position: relative;
+    padding: 18px 40px;
     border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
     font-size: 1rem;
-    overflow: hidden; /* This is CRITICAL to contain the fill effect */
+    overflow: hidden;
     transition: color 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     z-index: 1;
 }
@@ -88,15 +127,12 @@ body {
 .hero-btn::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     z-index: -1;
     transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* Primary Button: Orange fill */
 .hero-btn.primary {
     background-color: transparent;
     color: var(--text-light);
@@ -105,7 +141,6 @@ body {
 
 .hero-btn.primary::before {
     background-color: var(--orange);
-    /* Start the fill below the button */
     transform: translateY(101%);
 }
 
@@ -114,11 +149,9 @@ body {
 }
 
 .hero-btn.primary:hover::before {
-    /* Move the fill into view on hover */
     transform: translateY(0);
 }
 
-/* Secondary Button: Reverse fill */
 .hero-btn.secondary {
     background-color: rgba(255, 255, 255, 0.9);
     color: var(--dark-bg);
@@ -129,7 +162,6 @@ body {
     background-color: transparent;
     border: 1px solid var(--orange);
     border-radius: 50px;
-    /* This one scales up from the center */
     transform: scale(0);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -137,12 +169,123 @@ body {
 
 .hero-btn.secondary:hover {
     color: var(--orange);
-    background-color: #000000;
+    background-color: transparent;
 }
 
 .hero-btn.secondary:hover::before {
     transform: scale(1);
     opacity: 1;
+}
+
+
+/* --- UPGRADED "AIRMADE" LIQUID GLASS POPUP CARD --- */
+.webgl-popup-card {
+    /* The CSS variable for our dynamic gradient */
+    --card-gradient-color: #FF6700;
+
+    position: absolute;
+    z-index: 3;
+
+    /* The AIRMADE gradient, using our variable */
+    background: linear-gradient(
+        180deg,
+        rgba(var(--card-gradient-color), 0.4) 0%,
+        rgba(var(--card-gradient-color), 0.0) 35%
+    ),
+    rgba(20, 20, 25, 0.4); /* Base color */
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-light);
+    width: 320px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+    /* The Liquid Glass Effect */
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+
+    /* Layout for the content */
+    display: flex;
+    flex-direction: column;
+
+    /* Animation */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px) scale(0.98);
+    transform-origin: top left;
+    transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.webgl-popup-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Card Content Styling */
+.webgl-popup-card .card-header {
+    margin-bottom: 16px;
+}
+.webgl-popup-card h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+.webgl-popup-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(240, 240, 240, 0.7);
+    flex-grow: 1; /* Pushes footer down */
+}
+
+/* The "Stats" Footer */
+.webgl-popup-card .card-footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+.webgl-popup-card .stat {
+    text-align: left;
+}
+.webgl-popup-card .stat h4 {
+    margin: 0 0 4px 0;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: rgba(240, 240, 240, 0.5);
+    text-transform: uppercase;
+}
+.webgl-popup-card .stat span {
+    font-weight: 600;
+    color: #fff;
+}
+
+
+/* ================================================= */
+/* ==      ADD THIS MEDIA QUERY FOR MOBILE        == */
+/* ================================================= */
+@media (max-width: 900px) {
+    .webgl-popup-card {
+        width: 280px; /* Make card narrower */
+        padding: 20px; /* Reduce padding */
+    }
+    .webgl-popup-card h3 {
+        font-size: 1.1rem; /* Smaller title */
+    }
+    .webgl-popup-card p {
+        font-size: 0.85rem; /* Smaller paragraph text */
+        line-height: 1.5;
+    }
+    .webgl-popup-card .card-footer {
+        margin-top: 16px;
+        padding-top: 12px;
+    }
 }
 
 
