@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Lamonje</title>
+    <style>
+        /*
+         * CSS for the Responsive and Styled Privacy Policy Page
+         */
+
+        /* Color Variables */
+        :root {
+            --color-primary: #FF7F50; /* Orange (Coral/Bright) */
+            --color-secondary: #FFFFFF; /* White */
+            --color-background: #1C1C1C; /* Dark Black/Charcoal */
+            --color-text-light: #F0F0F0; /* Off-White for body text */
+            --color-text-dark: #333333; /* Dark Grey for contrast on white */
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        /* Policy Content Styling */
+        .policy-section {
+            background-color: var(--color-background);
+            padding: 40px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .policy-section h2 {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        .policy-section h3 {
+            color: var(--color-secondary);
+            margin-top: 30px;
+            font-size: 1.4em;
+        }
+
+        p, ul {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #FFB3A1; /* Lighter Orange */
+            text-decoration: underline;
+        }
+
+        /* Last Updated Styling (from JS) */
+        #last-updated-date {
+            font-style: italic;
+            font-size: 0.9em;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--color-text-dark); /* Using dark grey/black for contrast */
+            color: var(--color-secondary);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+            margin-top: 40px;
+            border-top: 3px solid var(--color-primary);
+        }
+
+        .footer-link a {
+            color: var(--color-secondary);
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid var(--color-secondary);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-link a:hover {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-text-dark);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .policy-section {
+                padding: 20px 15px;
+            }
+
+            .policy-section h2 {
+                font-size: 1.6em;
+            }
+
+            body {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .policy-section h2 {
+                font-size: 1.4em;
+            }
+            
+            .policy-section h3 {
+                font-size: 1.2em;
+            }
+
+            .footer-link {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Lamonje Privacy Policy</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="policy-section">
+            <h2>Introduction</h2>
+            <span id="last-updated-date">Last updated: <span id="update-date-placeholder">January 1, 2024</span></span>
+            <p>Lamonje (the "Site," "we," "us," or "our") operates <a href="https://lamonje.vercel.app/" target="_blank">https://lamonje.vercel.app/</a>. This page informs you of our policies regarding the collection, use, and disclosure of Personal Information we receive from users of the Site.</p>
+            <p>We use your Personal Information only for providing and improving the Site. By using the Site, you agree to the collection and use of information in accordance with this policy.</p>
+
+            <h2>Information Collection and Use</h2>
+            <p>While using our Site, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to, your name and email address ("Personal Information").</p>
+
+            <h3>Data We May Collect</h3>
+            <ul>
+                <li><strong>Personal Information:</strong> Name, email address, or other identifiers if you use a contact form or subscribe to a newsletter.</li>
+                <li><strong>Usage Data (Log Data):</strong> Information your browser sends whenever you visit our Site. This may include your computer's Internet Protocol ("IP") address, browser type, browser version, the pages of our Site that you visit, the time and date of your visit, the time spent on those pages, and other statistics.</li>
+            </ul>
+            
+            <h3>Use of Data</h3>
+            <p>We use the collected data for various purposes:</p>
+            <ul>
+                <li>To provide and maintain the Site.</li>
+                <li>To notify you about changes to our Site or services.</li>
+                <li>To provide customer support and respond to inquiries.</li>
+                <li>To monitor the usage of the Site and improve user experience.</li>
+            </ul>
+
+            <h2>Cookies</h2>
+            <p>Cookies are files with small amounts of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your computer's hard drive.</p>
+            <p>We may use "cookies" to collect information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.</p>
+
+            <h2>Security</h2>
+            <p>The security of your Personal Information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.</p>
+
+            <h2>Changes to This Privacy Policy</h2>
+            <p>This Privacy Policy is effective as of the date specified above and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.</p>
+            <p>We reserve the right to update or change our Privacy Policy at any time, and you should check this Privacy Policy periodically. Your continued use of the Service after we post any modifications to the Privacy Policy on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <ul>
+                <li>By email: <a href="mailto:contact@lamonje.vercel.app">contact@lamonje.vercel.app</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Lamonje. All rights reserved.</p>
+            <div class="footer-link">
+                <!-- Single link requested by the user -->
+                <a href="/terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /*
+         * Simple JavaScript to dynamically update the "Last Updated" date.
+         * This is a non-essential JS element, as requested.
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            const datePlaceholder = document.getElementById('update-date-placeholder');
+            
+            // Set the date to a specific one, or the current date if you want
+            // to show when the user is viewing the page. Using a static one 
+            // is more common for a legal document's "effective date."
+            const effectiveDate = "December 9, 2025"; // Manually set effective date
+            
+            // To use the current date the script is run:
+            // const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            // const effectiveDate = new Date().toLocaleDateString('en-US', options);
+
+            datePlaceholder.textContent = effectiveDate;
+
+            console.log("Privacy Policy page loaded. Date set to: " + effectiveDate);
+        });
+    </script>
+</body>
+</html>
